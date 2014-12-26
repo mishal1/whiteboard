@@ -1,25 +1,23 @@
+var socket = io.connect('/');
 var context = $("canvas")[0].getContext("2d");
 var lastEvent;
 var width = 4
 var colour = "black";
 
-$(document).ready(function(){
-  drawWhenMouseClicked();
-  pickColour();
-  lineWidth();
+
+socket.on('loop', function(){
+  console.log("looping!");
 });
 
-function drawWhenMouseClicked(){
-  $("canvas").mousedown(function(e){
-    mouseClicked(e)
-  }).mousemove(function(e){
-    mouseDrag(mouseDown, context, e)
-  }).mouseup(function(){
-    mouseDown = false;
-  }).mouseleave(function(){
-    $("canvas").mouseup();
-  });
-};
+$("canvas").mousedown(function(e){
+  mouseClicked(e)
+}).mousemove(function(e){
+  mouseDrag(mouseDown, context, e)
+}).mouseup(function(){
+  mouseDown = false;
+}).mouseleave(function(){
+  $("canvas").mouseup();
+});
 
 function mouseClicked(e){
   lastEvent = e;
@@ -28,6 +26,7 @@ function mouseClicked(e){
 
 function mouseDrag(mouseDown, context, e){
   if(mouseDown) {
+    socket.emit('drawing')
     draw(context, e)
   }
 };
@@ -44,23 +43,19 @@ function draw(context, e){
   lastEvent = e;
 };
 
-function pickColour(){
-  $("button").click(function(){
-    colour = this.id
-  });
-};
+$("button").click(function(){
+  colour = this.id
+});
 
-function lineWidth(){
-  $("#line").click(function(){
-    var number = parseInt(this.innerText);
-    number +=1
-    this.innerText = number
-    if(number === 6){
-      this.innerText = 1
-    }
-    width +=4
-    if(width === 24){
-      width = 4
-    }
-  });
-}
+$("#line").click(function(){
+  var number = parseInt(this.innerText);
+  number +=1
+  this.innerText = number
+  if(number === 6){
+    this.innerText = 1
+  }
+  width +=4
+  if(width === 24){
+    width = 4
+  }
+});
