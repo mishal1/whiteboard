@@ -2,6 +2,7 @@ header {
   text-align: center;
   font: bold 30px 'Varela Round', sans-serif;
   color: black;
+  margin-top: 5%;
 }
 
 body {
@@ -9,18 +10,24 @@ body {
 }
 
 article {
-  /*cursor: crosshair;*/
+  text-align: center;
+}
+
+canvas {
   border-style: solid;
   border-width: 5px;
-  height:400px;
-  width: 400px;
-  margin: 10 auto;
+/*  height:500px;
+  width: 500px;*/
   background: #fff;
+  cursor: crosshair;
 }
 
 footer {
   text-align: center;
+  margin-bottom: 10%;
+  padding-top: 5px;
 }
+
 
 button {
   width: 40px;
@@ -46,11 +53,3 @@ button {
 #green {
   background: green;
 }
-/*aside {
-  border-style: solid;
-  border-width: 5px;
-  height:200px;
-  width: 50px;
-  margin: 5 auto;
-  background: #fff;
-}*/
