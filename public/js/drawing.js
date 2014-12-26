@@ -1,16 +1,12 @@
 var context = $("canvas")[0].getContext("2d");
 var lastEvent;
-
+var width = 4
 var colour = "black";
 
 $(document).ready(function(){
   drawWhenMouseClicked();
   pickColour();
-  $("slider").slider({
-    orientation: "horizontal",
-    max: 100,
-    min: 0
-  });
+  lineWidth();
 });
 
 function drawWhenMouseClicked(){
@@ -41,7 +37,9 @@ function draw(context, e){
   context.moveTo(lastEvent.offsetX, lastEvent.offsetY);
   context.lineTo(e.offsetX, e.offsetY);
   context.strokeStyle = colour;
-  context.lineWidth = 5;
+  context.lineWidth = width;
+  context.lineJoin = 'round';
+  context.lineCap = 'round';
   context.stroke();
   lastEvent = e;
 };
@@ -51,3 +49,18 @@ function pickColour(){
     colour = this.id
   });
 };
+
+function lineWidth(){
+  $("#line").click(function(){
+    var number = parseInt(this.innerText);
+    number +=1
+    this.innerText = number
+    if(number === 6){
+      this.innerText = 1
+    }
+    width +=4
+    if(width === 24){
+      width = 4
+    }
+  });
+}
