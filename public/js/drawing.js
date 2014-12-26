@@ -1,12 +1,12 @@
-// var pickColour = require('./pickColour.js');
-
 var context = $("canvas")[0].getContext("2d");
 var lastEvent;
+
 var colour = "black";
 
 $(document).ready(function(){
   drawWhenMouseClicked();
   pickColour();
+  // $("slider").slider({});
 });
 
 function drawWhenMouseClicked(){
