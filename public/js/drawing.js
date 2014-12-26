@@ -6,7 +6,11 @@ var colour = "black";
 $(document).ready(function(){
   drawWhenMouseClicked();
   pickColour();
-  // $("slider").slider({});
+  $("slider").slider({
+    orientation: "horizontal",
+    max: 100,
+    min: 0
+  });
 });
 
 function drawWhenMouseClicked(){
@@ -37,6 +41,7 @@ function draw(context, e){
   context.moveTo(lastEvent.offsetX, lastEvent.offsetY);
   context.lineTo(e.offsetX, e.offsetY);
   context.strokeStyle = colour;
+  context.lineWidth = 5;
   context.stroke();
   lastEvent = e;
 };

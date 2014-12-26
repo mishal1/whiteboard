@@ -29,13 +29,16 @@ footer {
 }
 
 
-button {
+.button {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin: 5 5 auto;
   border-width: 5px;
   outline-style:none;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-indent: -9999px; 
 }
 
 #red {
@@ -60,18 +63,20 @@ button {
 
 #white {
   background: white;
+  background-image: url(https://cdn2.iconfinder.com/data/icons/fugue/bonus/icons-24/eraser.png);
+  background-repeat: no-repeat;
+  background-position:center
 }
 
-/*#slider {
-    margin: 10px;
+#line {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 5 5 auto;
+  border-width: 5px;
+  outline-style:none;
+  background: white;
+  font: bold 14px 'Varela Round', sans-serif; 
 }
-.ui-slider-horizontal {
-    height: 8px;
-    width: 200px;
-}
-.ui-slider .ui-slider-handle {
-    height: 15px;
-    width: 5px;
-    padding-left: 5px;
-}*/
+
 
