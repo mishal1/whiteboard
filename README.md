@@ -9,8 +9,8 @@ The task was to create an interactive whiteboard using Node, Sockets and Canvas.
 - HTML5 Canvas
 
 ##Technology Used
-- Sockets
-- Node
-- HTML5
-- Jasmine
+- Socket.io
+- Node JS
+- HTML5 Canvas
+- Casper
 - CSS
